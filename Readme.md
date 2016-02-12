@@ -1,4 +1,4 @@
-# geojson-project
+# geojson-project ![circle](https://circleci.com/gh/w8r/geojson-project.svg?style=shield&circle-token=597a6db31df1e249a8a9bf29531f7baefc142641)
 
 ## API
 
