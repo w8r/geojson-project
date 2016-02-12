@@ -1,0 +1,28 @@
+{
+  "name": "geojson-project",
+  "version": "1.0.0",
+  "description": "Util for processing geojson coordinates, in most cases to project them",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w8r/geojson-project.git"
+  },
+  "keywords": [
+    "geojson",
+    "project",
+    "functional",
+    "coordinates"
+  ],
+  "author": "Alexander Milevski <info@w8r.name>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/w8r/geojson-project/issues"
+  },
+  "homepage": "https://github.com/w8r/geojson-project#readme",
+  "devDependencies": {
+    "tape": "^4.4.0"
+  }
+}
