@@ -6,7 +6,7 @@
 * `geojson` is `Feature` or `FeatureCollection`
 * `func` is the project function, takes in one coordinate pair,
          returns it transformed
-* `context` _optional_ - transform function `this`
+* `context` _optional_ - transform function's `this`
 
 returns transformed copy of GeoJSON
 
