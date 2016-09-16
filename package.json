@@ -1,6 +1,6 @@
 {
   "name": "geojson-project",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Util for processing geojson coordinates, in most cases to project them",
   "main": "index.js",
   "scripts": {
