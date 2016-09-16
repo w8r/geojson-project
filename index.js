@@ -1,11 +1,30 @@
+/**
+ * Node & browser script to transform/project geojson coordinates
+ * @copyright Alexander Milevski <info@w8r.name>
+ * @preserve
+ * @license MIT
+ */
+(function (factory) { // UMD wrapper
+	if (typeof define === 'function' && define.amd) { // AMD
+		define(factory);
+	} else if (typeof module         === 'object' &&
+             typeof module.exports === "object") { // Node/CommonJS
+		module.exports = factory();
+	} else { // Browser globals
+		window.geojsonProject = factory();
+	}
+})(function () {
 
 /**
+ * Takes in GeoJSON and applies a function to each coordinate,
+ * with a given context
+ *
  * @param  {Object}     data GeoJSON
  * @param  {Function}   project
  * @param  {*=}         context
  * @return {Object}
  */
-module.exports = function(data, project, context) {
+function geojsonProject (data, project, context) {
   data = JSON.parse(JSON.stringify(data));
   if (data.type === 'FeatureCollection') {
     // That's a huge hack to get things working with both ArcGIS server
@@ -21,8 +40,8 @@ module.exports = function(data, project, context) {
   return data;
 };
 
-module.exports.projectFeature  = projectFeature;
-module.exports.projectGeometry = projectGeometry;
+geojsonProject.projectFeature  = projectFeature;
+geojsonProject.projectGeometry = projectGeometry;
 
 
 /**
@@ -31,11 +50,11 @@ module.exports.projectGeometry = projectGeometry;
  * @param  {*=}         context
  * @return {Object}
  */
-function projectFeature(feature, project, context) {
-  if (feature.type === 'GeometryCollection') {
-    for (var i = 0, len = feature.geometries.length; i < len; i++) {
-      feature.geometries[i] =
-        projectGeometry(feature.geometries[i], project, context);
+function projectFeature (feature, project, context) {
+  if (feature.geometry.type === 'GeometryCollection') {
+    for (var i = 0, len = feature.geometry.geometries.length; i < len; i++) {
+      feature.geometry.geometries[i] =
+        projectGeometry(feature.geometry.geometries[i], project, context);
     }
   } else {
     feature.geometry = projectGeometry(feature.geometry, project, context);
@@ -50,7 +69,7 @@ function projectFeature(feature, project, context) {
  * @param  {*=}         context
  * @return {Object}
  */
-function projectGeometry(geometry, project, context) {
+function projectGeometry (geometry, project, context) {
   var coords = geometry.coordinates;
   switch (geometry.type) {
     case 'Point':
@@ -91,7 +110,7 @@ function projectGeometry(geometry, project, context) {
  * @param  {*=}         context
  * @return {*}
  */
-function projectCoords(coords, levelsDeep, project, context) {
+function projectCoords (coords, levelsDeep, project, context) {
   var coord, i, len;
   var result = [];
 
@@ -105,3 +124,7 @@ function projectCoords(coords, levelsDeep, project, context) {
 
   return result;
 }
+
+return geojsonProject;
+
+});
