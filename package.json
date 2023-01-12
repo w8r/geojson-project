@@ -35,7 +35,8 @@
   "homepage": "https://github.com/w8r/geojson-project#readme",
   "devDependencies": {
     "typescript": "^4.9.4",
-    "vite": "^4.0.4"
+    "vite": "^4.0.4",
+    "@types/geojson": "^7946.0.10"
   },
   "dependencies": {
     "@types/geojson": "^7946.0.10"
