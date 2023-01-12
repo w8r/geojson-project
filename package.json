@@ -13,7 +13,7 @@
     "dist"
   ],
   "scripts": {
-    "test": "tape test.js",
+    "test": "node --test",
     "build": "vite build && npm run types",
     "types": "tsc --emitDeclarationOnly --declaration --declarationDir dist index.ts"
   },
