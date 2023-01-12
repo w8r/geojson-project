@@ -11,7 +11,7 @@ import {
 } from "geojson";
 /**
  * Node & browser script to transform/project geojson coordinates
- * @copyright Alexander Milevski <info@w8r.name>
+ * @copyright Alexander Milevski <alex@milevski.co>
  * @preserve
  * @license MIT
  */

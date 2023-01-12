@@ -11,7 +11,10 @@ export default defineConfig({
       entry: resolve(__dirname, "index.ts"),
       name: "geojsonProject",
       // the proper extensions will be added
-      fileName: "index",
+      fileName: (format) => {
+        if (format === "es") return `index.mjs`;
+        return `index.${format}.js`;
+      },
     },
   },
 });
